@@ -21,100 +21,97 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
-    public void initVar(){
-
-    }
-    //Addition method
-    public void Add(View view){
+    public class InitValues{
         EditText numberBox1 = findViewById(R.id.numberBox1);
         EditText numberBox2 = findViewById(R.id.numberBox2);
         TextView numberBox3 = findViewById(R.id.numberBox3);
         TextView currentOperator = findViewById(R.id.currentOperator);
+    }
 
-        if(numberBox1.getText().toString().isEmpty()) {
-            numberBox3.setText("Insert First Number");
+    //Addition method
+    public void Add(View view){
+
+        InitValues initValues = new InitValues();
+
+        if(initValues.numberBox1.getText().toString().isEmpty()) {
+            initValues.numberBox3.setText("Insert First Number");
         }
-        else if(numberBox2.getText().toString().isEmpty()){
-            numberBox3.setText("Insert Second Number");
+        else if(initValues.numberBox2.getText().toString().isEmpty()){
+            initValues.numberBox3.setText("Insert Second Number");
         }
         else {
-            Double num1 = Double.parseDouble(numberBox1.getText().toString());
-            Double num2 = Double.parseDouble(numberBox2.getText().toString());
+            Double num1 = Double.parseDouble(initValues.numberBox1.getText().toString());
+            Double num2 = Double.parseDouble(initValues.numberBox2.getText().toString());
 
             Double result = num1 + num2;
-            currentOperator.setText("+");
-            numberBox3.setText(String.valueOf(result));
+            initValues.currentOperator.setText("+");
+            initValues.numberBox3.setText(String.valueOf(result));
         }
     }
 
     //Subtraction method
     public void Sub(View view){
-        EditText numberBox1 = findViewById(R.id.numberBox1);
-        EditText numberBox2 = findViewById(R.id.numberBox2);
-        TextView numberBox3 = findViewById(R.id.numberBox3);
-        TextView currentOperator = findViewById(R.id.currentOperator);
-        if(numberBox1.getText().toString().isEmpty()) {
-            numberBox3.setText("Insert First Number");
+
+        InitValues initValues = new InitValues();
+
+        if(initValues.numberBox1.getText().toString().isEmpty()) {
+            initValues.numberBox3.setText("Insert First Number");
         }
-        else if(numberBox2.getText().toString().isEmpty()){
-            numberBox3.setText("Insert Second Number");
+        else if(initValues.numberBox2.getText().toString().isEmpty()){
+            initValues.numberBox3.setText("Insert Second Number");
         }
         else {
-            Double num1 = Double.parseDouble(numberBox1.getText().toString());
-            Double num2 = Double.parseDouble(numberBox2.getText().toString());
+            Double num1 = Double.parseDouble(initValues.numberBox1.getText().toString());
+            Double num2 = Double.parseDouble(initValues.numberBox2.getText().toString());
             Double result = num1 - num2;
 
-            currentOperator.setText("-");
-            numberBox3.setText(String.valueOf(result));
+            initValues.currentOperator.setText("-");
+            initValues.numberBox3.setText(String.valueOf(result));
         }
     }
 
     //Division method
     public void Div(View view){
-        EditText numberBox1 = findViewById(R.id.numberBox1);
-        EditText numberBox2 = findViewById(R.id.numberBox2);
-        TextView numberBox3 = findViewById(R.id.numberBox3);
-        TextView currentOperator = findViewById(R.id.currentOperator);
-        if(numberBox1.getText().toString().isEmpty()) {
-            numberBox3.setText("Insert First Number");
+
+        InitValues initValues = new InitValues();
+
+        if(initValues.numberBox1.getText().toString().isEmpty()) {
+            initValues.numberBox3.setText("Insert First Number");
         }
-        else if(numberBox2.getText().toString().isEmpty()){
-            numberBox3.setText("Insert Second Number");
+        else if(initValues.numberBox2.getText().toString().isEmpty()){
+            initValues.numberBox3.setText("Insert Second Number");
         }
         else {
-            Double num1 = Double.parseDouble(numberBox1.getText().toString());
-            Double num2 = Double.parseDouble(numberBox2.getText().toString());
+            Double num1 = Double.parseDouble(initValues.numberBox1.getText().toString());
+            Double num2 = Double.parseDouble(initValues.numberBox2.getText().toString());
             if (num2 > 0) {
                 Double result = (Double) num1 / (Double) num2;
-                currentOperator.setText("÷");
-                numberBox3.setText(String.valueOf(result));
+                initValues.currentOperator.setText("÷");
+                initValues.numberBox3.setText(String.format("%.3f", result));
             } else {
-                numberBox3.setText("INVALID");
-                currentOperator.setText("÷");
+                initValues.numberBox3.setText("INVALID");
+                initValues.currentOperator.setText("÷");
             }
         }
     }
     //Multiplication method
     public void Mul(View view) {
-        EditText numberBox1 = findViewById(R.id.numberBox1);
-        EditText numberBox2 = findViewById(R.id.numberBox2);
-        TextView numberBox3 = findViewById(R.id.numberBox3);
-        TextView currentOperator = findViewById(R.id.currentOperator);
-        if (numberBox1.getText().toString().isEmpty()) {
-            numberBox3.setText("Insert First Number");
-        } else if (numberBox2.getText().toString().isEmpty()) {
-            numberBox3.setText("Insert Second Number");
+
+        InitValues initValues = new InitValues();
+
+        if (initValues.numberBox1.getText().toString().isEmpty()) {
+            initValues.numberBox3.setText("Insert First Number");
+        } else if (initValues.numberBox2.getText().toString().isEmpty()) {
+            initValues.numberBox3.setText("Insert Second Number");
         } else {
-            Double num1 = Double.parseDouble(numberBox1.getText().toString());
-            Double num2 = Double.parseDouble(numberBox2.getText().toString());
+            Double num1 = Double.parseDouble(initValues.numberBox1.getText().toString());
+            Double num2 = Double.parseDouble(initValues.numberBox2.getText().toString());
             Double result = num1 * num2;
 
-            currentOperator.setText("X");
-            numberBox3.setText(String.valueOf(result));
+            initValues.currentOperator.setText("X");
+            initValues.numberBox3.setText(String.valueOf(result));
         }
     }
 }
